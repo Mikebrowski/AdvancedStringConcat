@@ -20,63 +20,57 @@ namespace AdvancedStringConcat
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a string here:");
+
+
+            Console.Write("Enter a string here:.. ");
+            //Read first input string.
             string input = Console.ReadLine();
-            var arr = input.GroupBy(c => c).Select(c => new { Char = c.Key, Count = c.Count() });
 
-            foreach (var c in arr)
-            {
-                Console.WriteLine(c.Count + "\n" + c.Char);
-            }
-            //   
-           //mapping and grouping
+            Console.Write("Enter a single character that will be check in the string you have inputed: ");
 
+            char searchInput = Console.ReadLine()[0];
 
+            int searchIndex = input.IndexOf(searchInput);
 
-            // char searchInput
-            Console.WriteLine("Enter the string character you wish to count");
-            var searchIndex = input.Length;
-            // int searchIndex = searchInput.Length;//Searches for the funcation
+            Console.WriteLine($"Index of character is [0] in a string of [1]{searchIndex}");
+            Console.WriteLine($"Index of character is [0] with the following lettter {searchInput} in a string of [1]{searchIndex}");
 
-            Console.WriteLine($"Index of character is [0] in a string of [1]{arr}");
+            Console.WriteLine("Please wait for the next input... \n.");
 
-            Console.WriteLine("Please wait for the next input.....\n.");
-
-            Console.WriteLine("please write your first name");
+            Console.WriteLine("Please write your first name... ");
             string firstName = Console.ReadLine();
 
-            Console.WriteLine("please write your last name");
+            Console.WriteLine("Please write your last name... ");
             string lastName = Console.ReadLine();
 
             //THIS IS NOT CORRECT
-            string fullname = firstName + lastName;
+            string fullName = string.Concat(firstName," ",lastName);
 
+
+          
             //System.Linq.Enumerable + SelectEnumerableIterator`2[System.Linq.IGrouping`2[System.Char, System.Char],<> f__AnonymousType0`2[System.Char, System.Int32]]
             //
 
 
 
 
-            Console.WriteLine("Your full name combained by concat method {0}", fullname);
+            Console.WriteLine("Your full name combained by concat method {0}",fullName);
+            /*HER HAR DU ET EKEMPSEL PÅ MAPPING MED GROUP BY MED lamban expression =>*/
+            string groupByInput = Console.ReadLine();
+            var arr = groupByInput.GroupBy(chars => chars).Select(chars => new { Char = chars.Key, Count = chars.Count() });
 
-            /*
+            //WHAT IS TSource c or x is the source it seems
 
-
-            public enum Season
-        {
-            Spring,
-            Summer,
-            Autumn,
-            Winter
-        }
-
-
-                public static enumExample void 
+            foreach (var chars in arr)
             {
-
-
+                Console.WriteLine(chars.Count + "\n" + chars.Char);
             }
-            */
+
+            Console.WriteLine("Enter the string character you wish to count");
+            var searchIndex2 = input.Length;
+
+            Console.WriteLine($"Index of character is [0] in a string of [1]{arr}");
+            //mapping and grouping
         }
 
 
